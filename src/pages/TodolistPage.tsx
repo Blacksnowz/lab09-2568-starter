@@ -24,7 +24,9 @@ function App() {
       isDone: false,
     },
   ]);
-
+  const allCount = tasks.length;
+  const doneCount = tasks.filter(task => task.isDone).length;
+  
   const handleAdd = (newTask: TaskCardProps) => {
     //make a new array based on old "tasks" and add newTask as last one
     const newTasks = [...tasks, newTask];
@@ -49,7 +51,7 @@ function App() {
     <div className="col-12 m-2 p-0">
       <div className="container text-center">
         <h2>Todo List</h2>
-        <span className="m-2">All : () Done : ()</span>
+        <span className="m-2">All : {allCount} Done : {doneCount}</span>
         {/* Modal Component */}
         <button
           type="button"
